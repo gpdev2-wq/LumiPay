@@ -25,7 +25,11 @@ let OrdersController = class OrdersController {
         this.ordersService = ordersService;
     }
     async createOrder(orderData) {
-        return this.ordersService.createOrder(orderData);
+        const orderWithStatus = {
+            ...orderData,
+            status: orderData.status || 'pending'
+        };
+        return this.ordersService.createOrder(orderWithStatus);
     }
     async getAllOrders(userId) {
         if (userId) {

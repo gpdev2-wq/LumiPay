@@ -10,6 +10,7 @@ export interface User {
     totalOrders: number;
     totalVolume: number;
     status: 'active' | 'suspended' | 'banned';
+    role?: 'user' | 'admin' | 'super_admin';
     bankDetails?: {
         accountNumber?: string;
         ifscCode?: string;

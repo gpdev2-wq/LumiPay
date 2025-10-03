@@ -6,8 +6,8 @@ export declare class AuthService {
     constructor(usersService: UsersService, jwtService: JwtService);
     validateUser(uid: string): Promise<any>;
     generateJwtToken(user: any): Promise<{
-        access_token: any;
+        access_token: string;
     }>;
-    verifyFirebaseToken(token: string): Promise<any>;
+    verifyFirebaseToken(token: string): Promise<import("node_modules/firebase-admin/lib/auth/token-verifier").DecodedIdToken>;
     isAdmin(uid: string): Promise<boolean>;
 }

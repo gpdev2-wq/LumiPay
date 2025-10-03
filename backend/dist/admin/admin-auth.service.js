@@ -41,7 +41,6 @@ var __importStar = (this && this.__importStar) || (function () {
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminAuthService = void 0;
 const common_1 = require("@nestjs/common");
@@ -94,7 +93,9 @@ let AdminAuthService = class AdminAuthService {
                 token,
                 admin: {
                     email: admin.email,
+                    password: admin.password,
                     role: admin.role,
+                    isActive: admin.isActive,
                 },
             };
         }
@@ -129,6 +130,7 @@ let AdminAuthService = class AdminAuthService {
         console.log(`👤 New admin created: ${email} with role: ${role}`);
         return {
             email: newAdmin.email,
+            password: newAdmin.password,
             role: newAdmin.role,
             isActive: newAdmin.isActive,
         };
@@ -154,6 +156,7 @@ let AdminAuthService = class AdminAuthService {
         console.log(`👤 Admin updated: ${email}`);
         return {
             email: admin.email,
+            password: admin.password,
             role: admin.role,
             isActive: admin.isActive,
         };
@@ -170,13 +173,16 @@ let AdminAuthService = class AdminAuthService {
     async getAllAdmins() {
         return this.admins.map(admin => ({
             email: admin.email,
+            password: admin.password,
             role: admin.role,
+            isActive: admin.isActive,
         }));
     }
 };
 exports.AdminAuthService = AdminAuthService;
 exports.AdminAuthService = AdminAuthService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [typeof (_a = typeof jwt_1.JwtService !== "undefined" && jwt_1.JwtService) === "function" ? _a : Object, users_service_1.UsersService])
+    __metadata("design:paramtypes", [jwt_1.JwtService,
+        users_service_1.UsersService])
 ], AdminAuthService);
 //# sourceMappingURL=admin-auth.service.js.map

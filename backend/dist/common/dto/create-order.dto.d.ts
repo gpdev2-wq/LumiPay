@@ -4,5 +4,6 @@ export declare class CreateOrderDto {
     inrAmount: number;
     rate: number;
     depositAddress: string;
+    status?: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled';
     txHash?: string;
 }

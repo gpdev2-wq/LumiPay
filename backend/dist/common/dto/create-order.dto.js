@@ -18,6 +18,7 @@ class CreateOrderDto {
     inrAmount;
     rate;
     depositAddress;
+    status;
     txHash;
 }
 exports.CreateOrderDto = CreateOrderDto;
@@ -51,6 +52,11 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateOrderDto.prototype, "depositAddress", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(['pending', 'processing', 'completed', 'failed', 'cancelled']),
+    __metadata("design:type", String)
+], CreateOrderDto.prototype, "status", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),

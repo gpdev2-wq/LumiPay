@@ -1,5 +1,5 @@
 export declare class UpdateOrderDto {
-    status?: string;
+    status?: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled';
     txHash?: string;
     payoutMethod?: string;
     upiId?: string;

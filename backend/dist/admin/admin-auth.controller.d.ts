@@ -8,8 +8,8 @@ export declare class AdminAuthController {
     }): Promise<{
         access_token: string | undefined;
         admin: {
-            email: string;
-            role: "admin" | "super_admin";
+            email: string | undefined;
+            role: "admin" | "super_admin" | undefined;
         };
         message: string;
     }>;
