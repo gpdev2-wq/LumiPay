@@ -28,6 +28,10 @@ export class CreateOrderDto {
   depositAddress: string;
 
   @IsOptional()
+  @IsEnum(['pending', 'processing', 'completed', 'failed', 'cancelled'])
+  status?: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled';
+
+  @IsOptional()
   @IsString()
   txHash?: string;
 }

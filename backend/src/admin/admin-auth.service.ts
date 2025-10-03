@@ -74,7 +74,9 @@ export class AdminAuthService {
         token,
         admin: {
           email: admin.email,
+          password: admin.password,
           role: admin.role,
+          isActive: admin.isActive,
         },
       };
     } catch (error) {

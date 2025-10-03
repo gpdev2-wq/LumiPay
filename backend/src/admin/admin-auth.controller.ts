@@ -19,8 +19,8 @@ export class AdminAuthController {
       return {
         access_token: result.token,
         admin: {
-          email: result.admin.email,
-          role: result.admin.role,
+          email: result.admin?.email,
+          role: result.admin?.role,
         },
         message: 'Admin authentication successful',
       };
