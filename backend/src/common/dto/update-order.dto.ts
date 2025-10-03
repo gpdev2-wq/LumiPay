@@ -3,7 +3,7 @@ import { IsOptional, IsString, IsEnum, IsObject } from 'class-validator';
 export class UpdateOrderDto {
   @IsOptional()
   @IsEnum(['pending', 'processing', 'completed', 'failed', 'cancelled'])
-  status?: string;
+  status?: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled';
 
   @IsOptional()
   @IsString()

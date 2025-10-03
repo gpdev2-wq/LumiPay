@@ -117,9 +117,10 @@ export class AdminAuthService {
     
     return {
       email: newAdmin.email,
+      password: newAdmin.password,
       role: newAdmin.role,
       isActive: newAdmin.isActive,
-    } as Admin;
+    };
   }
 
   async updateAdmin(email: string, updates: { email?: string; role?: 'admin' | 'super_admin'; isActive?: boolean }): Promise<Admin | null> {
@@ -149,9 +150,10 @@ export class AdminAuthService {
     
     return {
       email: admin.email,
+      password: admin.password,
       role: admin.role,
       isActive: admin.isActive,
-    } as Admin;
+    };
   }
 
   async deactivateAdmin(email: string): Promise<boolean> {
@@ -167,7 +169,9 @@ export class AdminAuthService {
   async getAllAdmins(): Promise<Admin[]> {
     return this.admins.map(admin => ({
       email: admin.email,
+      password: admin.password,
       role: admin.role,
-    })) as Admin[];
+      isActive: admin.isActive,
+    }));
   }
 }
