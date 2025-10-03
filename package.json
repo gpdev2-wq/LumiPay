@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "start": "pnpm --filter backend start",
+    "start:prod": "pnpm --filter backend start:prod"
   },
   "devDependencies": {},
   "pnpm": {},
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "backend"
   ]
 }
