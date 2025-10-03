@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
 const common_1 = require("@nestjs/common");
 const app_module_1 = require("./app.module");
-const security_middleware_1 = require("./security/security.middleware");
-const rate_limit_middleware_1 = require("./security/rate-limit.middleware");
 async function bootstrap() {
     try {
         console.log('🚀 Starting backend server...');
@@ -19,8 +17,6 @@ async function bootstrap() {
             forbidNonWhitelisted: true,
             transform: true,
         }));
-        app.use(new security_middleware_1.SecurityMiddleware().use);
-        app.use(new rate_limit_middleware_1.RateLimitMiddleware().use);
         const corsOrigins = process.env.CORS_ORIGINS
             ? process.env.CORS_ORIGINS.split(',')
             : ['http://localhost:3000', 'http://localhost:3002', 'http://localhost:3003', 'http://localhost:3004'];
@@ -33,7 +29,6 @@ async function bootstrap() {
         const port = process.env.PORT ?? 3001;
         await app.listen(port);
         console.log(`🚀 Backend server running on port ${port}`);
-        console.log(`🔒 Security middleware enabled`);
         console.log(`🌍 CORS origins: ${corsOrigins.join(', ')}`);
         console.log(`📊 Health check available at: /health`);
     }

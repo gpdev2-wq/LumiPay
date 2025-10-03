@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, Firestore } from 'firebase/firestore';
+import { getFirestore, Firestore } from 'firebase/firestore';
 
 // Use the same Firebase config as your frontend
 const firebaseConfig = {

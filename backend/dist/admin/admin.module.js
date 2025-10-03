@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminModule = void 0;
 const common_1 = require("@nestjs/common");
+const jwt_1 = require("@nestjs/jwt");
 const admin_controller_1 = require("./admin.controller");
 const admin_auth_controller_1 = require("./admin-auth.controller");
 const admin_management_controller_1 = require("./admin-management.controller");
@@ -19,7 +20,14 @@ let AdminModule = class AdminModule {
 exports.AdminModule = AdminModule;
 exports.AdminModule = AdminModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule, users_module_1.UsersModule],
+        imports: [
+            auth_module_1.AuthModule,
+            users_module_1.UsersModule,
+            jwt_1.JwtModule.register({
+                secret: process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production',
+                signOptions: { expiresIn: '24h' },
+            }),
+        ],
         controllers: [admin_controller_1.AdminController, admin_auth_controller_1.AdminAuthController, admin_management_controller_1.AdminManagementController],
         providers: [admin_auth_service_1.AdminAuthService],
     })
