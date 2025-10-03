@@ -8,6 +8,6 @@ export declare class AuthService {
     generateJwtToken(user: any): Promise<{
         access_token: string;
     }>;
-    verifyFirebaseToken(token: string): Promise<import("node_modules/firebase-admin/lib/auth/token-verifier").DecodedIdToken>;
+    verifyFirebaseToken(token: string): Promise<import("firebase-admin/lib/auth/token-verifier").DecodedIdToken>;
     isAdmin(uid: string): Promise<boolean>;
 }
