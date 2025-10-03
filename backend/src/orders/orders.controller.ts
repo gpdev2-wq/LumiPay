@@ -14,7 +14,12 @@ export class OrdersController {
 
   @Post()
   async createOrder(@Body() orderData: CreateOrderDto): Promise<Order> {
-    return this.ordersService.createOrder(orderData);
+    // Set default status to 'pending' if not provided
+    const orderWithStatus = {
+      ...orderData,
+      status: orderData.status || 'pending'
+    };
+    return this.ordersService.createOrder(orderWithStatus);
   }
 
   @Get()
