@@ -124,3 +124,4 @@ uploads/
 # Local development
 *.local
 dttoinr-firebase-adminsdk-fbsvc-405b59f174.json
+backend/dist/
