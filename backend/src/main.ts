@@ -1,8 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
-import { SecurityMiddleware } from './security/security.middleware';
-import { RateLimitMiddleware } from './security/rate-limit.middleware';
 
 async function bootstrap() {
   try {
@@ -21,10 +19,6 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       transform: true,
     }));
-
-    // Security middleware
-    app.use(new SecurityMiddleware().use);
-    app.use(new RateLimitMiddleware().use);
     
     // Configure CORS for production
     const corsOrigins = process.env.CORS_ORIGINS 
@@ -41,7 +35,6 @@ async function bootstrap() {
     const port = process.env.PORT ?? 3001;
     await app.listen(port);
     console.log(`🚀 Backend server running on port ${port}`);
-    console.log(`🔒 Security middleware enabled`);
     console.log(`🌍 CORS origins: ${corsOrigins.join(', ')}`);
     console.log(`📊 Health check available at: /health`);
   } catch (error) {
