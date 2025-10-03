@@ -14,10 +14,12 @@ export class AppController {
   getHealth() {
     return {
       status: 'ok',
+      message: 'Backend is running',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
       environment: process.env.NODE_ENV || 'development',
       port: process.env.PORT || 3001,
+      version: '1.0.0'
     };
   }
 }

@@ -7,6 +7,11 @@ import { RateLimitMiddleware } from './security/rate-limit.middleware';
 async function bootstrap() {
   try {
     console.log('🚀 Starting backend server...');
+    console.log('📊 Environment check:');
+    console.log('- NODE_ENV:', process.env.NODE_ENV || 'development');
+    console.log('- PORT:', process.env.PORT || 3001);
+    console.log('- JWT_SECRET:', process.env.JWT_SECRET ? '✅ Set' : '❌ Missing');
+    console.log('- FIREBASE_PROJECT_ID:', process.env.FIREBASE_PROJECT_ID || '❌ Missing');
     
     const app = await NestFactory.create(AppModule);
     
