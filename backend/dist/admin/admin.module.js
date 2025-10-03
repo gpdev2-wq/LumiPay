@@ -13,12 +13,13 @@ const admin_auth_controller_1 = require("./admin-auth.controller");
 const admin_management_controller_1 = require("./admin-management.controller");
 const admin_auth_service_1 = require("./admin-auth.service");
 const auth_module_1 = require("../auth/auth.module");
+const users_module_1 = require("../users/users.module");
 let AdminModule = class AdminModule {
 };
 exports.AdminModule = AdminModule;
 exports.AdminModule = AdminModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule],
+        imports: [auth_module_1.AuthModule, users_module_1.UsersModule],
         controllers: [admin_controller_1.AdminController, admin_auth_controller_1.AdminAuthController, admin_management_controller_1.AdminManagementController],
         providers: [admin_auth_service_1.AdminAuthService],
     })
